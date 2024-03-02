@@ -11,7 +11,7 @@ const routes = [{
     path: '/',
     element: <Layout />,
     children: [{
-        path: '/rank',
+        path: '',
         element: <PageRank />,
     }]
 
