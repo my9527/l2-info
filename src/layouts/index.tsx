@@ -3,7 +3,7 @@
 
 import { Header } from "./header";
 import { Footer } from "./footer";
-import { PropsWithChildren } from "react";
+// import { PropsWithChildren } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `;
 
 
-export const Layout = (props: PropsWithChildren) => {
+export const Layout = () => {
 
 
     return (
