@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { Row } from "../../components/cmpt";
 
+import BtcSvg from "./btc.svg";
+import GrayPie from "./gray-pie.png";
+
 
 const Wrapper = styled(Row)`
     width: 100%;
@@ -22,6 +25,10 @@ const Wrapper = styled(Row)`
     .p-left{
         padding: 46px 56px;
         flex: 1;
+
+        background-image:  url('${BtcSvg}'), url('${GrayPie}');
+        background-repeat: no-repeat, no-repeat;
+        background-position:  90% -25%,95% 100%;
     }
 
     .p-right{
@@ -62,8 +69,8 @@ export const Part1 = () => {
     return (
         <Wrapper>
             <div className="p-left">
-            <MainTxt>Explore <span style={{ color: '#F90'}}>BTC</span> L2 Projects</MainTxt>
-            <SubTxt>The state of all Bitcoin Layer2 ecosystem</SubTxt>
+                <MainTxt>Explore <span style={{ color: '#F90'}}>BTC</span> L2 Projects</MainTxt>
+                <SubTxt>The state of all Bitcoin Layer2 ecosystem</SubTxt>
             </div>
             <div className="p-right">
                 <div className="txt-right">
