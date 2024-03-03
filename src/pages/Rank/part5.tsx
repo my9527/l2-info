@@ -5,7 +5,7 @@ import { media } from "../../utils/mediaQuery";
 
 
 
-const Wrapper = styled.div`
+const Wrapper1 = styled.div`
 
     cursor: pointer;
     background: white;
@@ -68,6 +68,118 @@ const Wrapper = styled.div`
         max-width: 100%;
         overflow-x: auto;
         padding: 0;
+        color: var(--grey, #242424);
+        .col{
+            width: 200px;
+            text-align: left;
+        }
+
+        .row-header{
+            padding: 23px 16px;
+            width: 550px;
+            color: rgba(255, 255, 255, 0.50);
+            font-family: Arial;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 14px; /* 116.667% */
+        }
+        .row-data{
+            padding: 24px 16px;
+            width: 550px;
+        }
+
+    `}
+`;
+
+const Wrapper = styled.div`
+
+    cursor: pointer;
+    background: white;
+
+    .row-header{
+        gap: 20px;
+        border: 0.5px solid var(--gray-15, rgba(0, 0, 0, 0.15));
+        background: var(--grey, #242424);
+        color: var(--white, #FFF);
+        font-family: Arial;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 14px; /* 87.5% */
+        padding: 24px 0;
+    }
+    .col-header{
+        // display: inline-flex;
+        // align-items: center;
+        // justify-content: center;
+        padding: 24px 16px;
+    }
+    .th-header{
+        display: inline-flex;
+        align-items: center;
+    }
+    .col-title{
+        margin-right: 8px;
+    }
+    .row-data {
+        gap: 20px;
+        padding: 24px 0;
+
+        &:hover{
+            background: var(--light-gray, #F5F5F5);
+
+        }
+    }
+    .col {
+        text-align: center;
+        white-space: nowrap;
+    }
+    .col-with-logo{
+        display: inline-flex;
+        align-items: center;
+    }
+    .data-logo{
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+    }
+    .data-col-tvl{
+        color: var(--orange, #F90);
+        text-align: center;
+        font-family: Arial;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px; /* 100% */
+    }
+    table {
+        border: none;
+        width: 100%;
+    }
+    thead {
+        background: var(--grey, #242424);
+    }
+    thead tr th {
+        padding: 22px 0;
+        color: white;
+    }
+
+    tr td{
+        padding: 22px 16px;
+    }
+
+    ${media.mobile`
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0;
+        color: var(--grey, #242424);
+        .col{
+            text-align: left;
+        }
+        .col-header{
+            // display: inherit;
+        }
 
         .row-header{
             padding: 23px 16px;
@@ -364,6 +476,69 @@ export const Part5 = () => {
         }
         return data;
     }, [curSort]);
+
+
+
+    return (
+
+        <Wrapper>
+            <table cellPadding={0} cellSpacing={0}>
+                <thead>
+                    <tr>
+                        {columns.map((col) => {
+                            return (
+                                <th className="col col-header" key={col.key}>
+                                    <div className="th-header">
+                                            <span className="col-title">{col.title}</span> 
+                                            {col.sortable !== false && <SortIcon onClick={handleSort} sort={col.key} dir={curSort.dir} curSort={curSort.type} key={`${col.key}-sort`}  />}
+                                    </div>
+                                </th>
+                            );
+                        })}    
+                    </tr>
+                </thead>
+                <tbody>
+                {
+                    sortedData.map((d, index) => {
+                        return (
+                            <tr className="row-data" key={index}>
+                                <td width="80px" className="col">
+                                    {index}
+                                </td>
+                                <td  className="col col-with-logo">
+                                    <img className="data-logo" src={d.logo} /> {d.title} {d.titletips.map(v => {
+                                        return <Tooltip key={v.type} tip={<div>{v.desc}</div>}>
+                                            {v.type ==='q' ? '?' : '!' }
+                                        </Tooltip>
+                                    })}
+                                </td>
+                                <td width="150px" className="col">
+                                    <div>{d.type}</div>
+                                </td>
+                                <td width="150px" className="col">
+                                    {d.base}
+                                </td>
+                                <td width="150px" className="col">
+                                    {d.stage}
+                                </td>
+                                <td width="120px" className="col data-col-tvl">
+                                    {d.tvl}
+                                </td>
+                                <td width="80px" className="col">
+                                    {d.shares}
+                                </td>
+                            </tr>
+                        )
+                    })
+                }
+                </tbody>
+
+            </table>
+
+        </Wrapper>
+    )
+
+    ;
 
 
     return (
