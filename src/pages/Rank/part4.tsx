@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Row } from "../../components/cmpt";
 import { AreaChart, Area, Tooltip, ResponsiveContainer } from 'recharts';
 import Bg from "./chart-bg.png";
+import { media } from "../../utils/mediaQuery";
 
 const data = [
     {
@@ -86,6 +87,29 @@ const Wrapper = styled(Row)`
         font-weight: 700;
         line-height: 14px; /* 116.667% */
     }
+
+
+    ${media.mobile`
+
+        .info-content{
+            padding: 16px;
+        }
+    
+        chart-title{
+            font-family: Arial;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px; /* 120% */
+        }
+        .date-range{
+            font-family: Arial;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 14px; /* 116.667% */
+        }
+    `}
 `;
 
 

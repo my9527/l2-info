@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Row } from "../components/cmpt";
+import { media } from "../utils/mediaQuery";
 
 
 
@@ -78,6 +79,46 @@ const Wrapper = styled(Row)`
     .footer-social + .footer-social {
         border-left: 1px solid var(--white, #FFF);
     }
+
+
+    ${media.mobile`
+        padding: 18px 16px;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .copy-right{
+            text-align: left;
+            color: var(--white, #FFF);
+            font-family: Arial;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .context-area{
+            flex-direction: column;
+            gap: 40px;
+            padding: 0;
+        }
+        .social-row{
+            
+        }
+        .footer-social{
+            color: rgba(255, 255, 255, 0.50);
+            text-align: right;
+            font-family: Arial;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 0 10px;
+            &:first-of-type{
+                padding-left: 0;
+            }
+        }
+
+    `}
 `
 
 const socials = [{
@@ -103,8 +144,8 @@ export const Footer = () => {
     return (
         <Wrapper>
             <Row className="context-area">
-                <div>Copyright 2024 BTCL2.info</div>
-                <Row>
+                <div className="copy-right">Copyright 2024 BTCL2.info</div>
+                <Row className="social-row">
                     {
                         socials.map(sc => {
                             return <div className="footer-social" key={sc.title} onClick={() => window.open(sc.url)}>

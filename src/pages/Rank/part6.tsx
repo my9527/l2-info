@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Row } from "../../components/cmpt";
+import { media } from "../../utils/mediaQuery";
 
 
 const Wrapper = styled(Row)`
@@ -60,6 +61,54 @@ const Wrapper = styled(Row)`
         font-style: normal;
         font-weight: 400;
         line-height: 22px; /* 157.143% */
+    }
+
+    ${
+        media.mobile`
+        
+            flex-direction: column;
+            .card {
+                width: 100%;
+            }
+            .title-row{
+                padding: 26px 16px 0;
+                color: #1B1B1B;
+                font-family: Arial;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 22px; /* 110% */
+                text-align: left;
+                justify-content: flex-start;
+                border: none;
+            }
+            .type-content{
+                padding: 0 16px;
+                background: var(--light-gray, #F5F5F5);
+            }
+            .type-row{
+                align-items: center;
+                
+            }
+            .type-title{
+                color: rgba(27, 27, 27, 0.50);
+                font-family: Arial;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 10px; /* 100% */
+            }
+            .type-desc{
+                color: rgba(27, 27, 27, 0.50);
+                font-family: Arial;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 14px; /* 100% */
+                text-align: left;
+            }
+
+        `
     }
 
 `

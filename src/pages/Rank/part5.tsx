@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Row, Col, Tooltip } from "../../components/cmpt";
 import { PropsWithChildren, useCallback, useMemo, useState } from "react";
+import { media } from "../../utils/mediaQuery";
 
 
 
@@ -42,6 +43,7 @@ const Wrapper = styled.div`
         text-align: center;
         flex: 1;
         white-space: nowrap;
+        width: 100px;
     }
     .col-with-logo{
         display: inline-flex;
@@ -61,6 +63,28 @@ const Wrapper = styled.div`
         font-weight: 400;
         line-height: 14px; /* 100% */
     }
+
+    ${media.mobile`
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0;
+
+        .row-header{
+            padding: 23px 16px;
+            width: 550px;
+            color: rgba(255, 255, 255, 0.50);
+            font-family: Arial;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 14px; /* 116.667% */
+        }
+        .row-data{
+            padding: 24px 16px;
+            width: 550px;
+        }
+
+    `}
 `;
 
 

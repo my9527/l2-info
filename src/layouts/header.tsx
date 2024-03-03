@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Row } from "../components/cmpt"; 
+import { useBreakpoints } from "../hooks/useBreakpoints";
 
 
 const Wrapper = styled.div`
@@ -72,6 +73,12 @@ const Wrapper = styled.div`
 
 
 export const Header = () => {
+
+    const { tablet } = useBreakpoints();
+    if(tablet) {
+        return null;
+    }
+
     return (
         <Wrapper>
             <Row className="header-content">
