@@ -468,9 +468,9 @@ export const Part5 = () => {
             const _data = [...data];
             return _data.sort((a: any, b: any) => {
                 if(curSort.dir === 'desc') {
-                    return a[curSort.type] - b[curSort.type]
+                    return a[curSort.type] > b[curSort.type] ? -1 : 1
                 } else {
-                    return b[curSort.type] - a[curSort.type]
+                    return b[curSort.type] - a[curSort.type] ? 1 : -1
                 }
             });
         }
