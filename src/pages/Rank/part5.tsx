@@ -441,10 +441,16 @@ const data = [{
 const SortIcon = (props: { sort: string, onClick: (...args: any[]) => any, dir: string, curSort: string } & PropsWithChildren) => {
     const { onClick, sort, curSort, dir } = props;
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20" fill="none">
-            <path onClick={() => onClick(sort, 'desc')} d="M4.60669 0.0463867L9.10669 6.04639H0.106689L4.60669 0.0463867Z" fill={(sort === curSort && dir === 'desc') ? '#F90' : 'white'}/>
-            <path onClick={() => onClick(sort, 'asc')} d="M4.60669 19.374L0.10669 13.374L9.10669 13.374L4.60669 19.374Z" fill={(sort === curSort && dir === 'asc') ? '#F90' : 'white'}/>
-        </svg>
+
+        <Col style={{ gap: '4px' }}>
+            <svg onClick={() => onClick(sort, 'desc')} xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none">
+                <path d="M4.73096 0.668091L9.23096 6.66809H0.230957L4.73096 0.668091Z" fill={(sort === curSort && dir === 'desc') ? '#F90' : 'white'}/>
+            </svg>
+            <svg onClick={() => onClick(sort, 'asc')} xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none">
+                <path d="M4.73096 6.33191L0.230958 0.331908L9.23096 0.331909L4.73096 6.33191Z" fill={(sort === curSort && dir === 'asc') ? '#F90' : 'white'} />
+            </svg>
+        </Col>
+       
     );
 }
 
