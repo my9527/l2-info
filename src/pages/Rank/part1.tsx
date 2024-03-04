@@ -31,7 +31,7 @@ const Wrapper = styled(Row)`
         padding: 46px 56px;
         flex: 1;
 
-        background-image:  url('${BtcSvg}'), url('${GrayPie}');
+        background-image:  url("${BtcSvg}"), url("${GrayPie}");
         background-repeat: no-repeat, no-repeat;
         background-position:  90% -25%,95% 100%;
     }
@@ -72,7 +72,7 @@ const SubTxt = styled.div`
 
 const WrapperMobile = styled.div`
     padding: 9px 16px;
-    background-image: url('${BtcMobileSvg}');
+    background-image: url("${BtcMobileSvg}");
     background-position: 95% 100%;
     background-repeat: no-repeat;
     background-color: var(--white, #FFF);
